@@ -1,0 +1,4 @@
+artist_hero.jpg   → Photo de fond du hero (pleine page)
+                    Portrait en pied ou mi-corps
+                    Lumière sombre recommandée
+                    Format : 1200x1600px minimum

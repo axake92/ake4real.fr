@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKE — R&B · Trap · Soul · Paris</title>
+<meta name="description" content="AKE — Artiste indépendant. R&B, Trap, Soul. Découvre la discographie, le streaming et l'Inner Circle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0F0D0A;--deep:#161410;--card:#1E1A14;--card2:#252018;
+  --border:rgba(212,149,32,.16);--border2:rgba(212,149,32,.07);
+  --gold:#D49520;--gold-l:#F0B535;
+  --cream:#F5EDD8;--muted:#8A7A58;--dim:#4A3D28;
+  --fd:'Cormorant Garamond',Georgia,serif;--fb:'Outfit',sans-serif;--fm:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--fb);color:var(--cream);background:var(--bg);overflow-x:hidden;cursor:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.026'/%3E%3C/svg%3E");pointer-events:none;z-index:9990;opacity:.38}
+.cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .18s,height .18s}
+.cur.big{width:30px;height:30px;opacity:.4}
+@media(hover:none){.cur{display:none}body{cursor:auto}}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:all .4s}
+nav.on{background:rgba(15,13,10,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.nav-logo{font-family:var(--fd);font-size:1.3rem;font-weight:400;letter-spacing:.06em;color:var(--cream);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{font-family:var(--fm);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{font-family:var(--fm);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,149,32,.35);padding:.55rem 1.3rem;text-decoration:none;transition:all .25s}
+.nav-cta:hover{background:var(--gold);color:var(--bg)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:600}
+.burger span{width:22px;height:1px;background:var(--cream);display:block}
+.mob-nav{position:fixed;inset:0;background:rgba(15,13,10,.99);z-index:490;display:none;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;transition:opacity .3s;pointer-events:none}
+.mob-nav.open{display:flex;opacity:1;pointer-events:all}
+.mob-nav a{font-family:var(--fd);font-size:2.4rem;font-weight:300;color:var(--cream);text-decoration:none;transition:color .2s}
+.mob-nav a:hover{color:var(--gold)}
+.mob-cta{font-family:var(--fm)!important;font-size:.65rem!important;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)!important;border:1px solid rgba(212,149,32,.35);padding:.7rem 2rem}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;overflow:hidden;text-align:center;padding:0 2rem 5rem}
+.hero-photo{position:absolute;inset:0;background:#0F0D0A url('photos/artist_hero.jpg') center 30%/cover no-repeat}
+.hero-photo-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,13,10,.3) 0%,rgba(15,13,10,.15) 40%,rgba(15,13,10,.75) 75%,var(--bg) 100%)}
+.hero-photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;background:radial-gradient(ellipse 90% 70% at 50% 35%,#201404 0%,var(--bg) 70%)}
+.ph-icon{font-size:3rem;opacity:.2}
+.ph-text{font-family:var(--fm);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-align:center}
+.hero-content{position:relative;z-index:2;width:100%;max-width:700px;margin:0 auto}
+.hero-tag{font-family:var(--fm);font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.8rem;opacity:0;animation:rise .7s .1s ease forwards}
+.hero-tag::before,.hero-tag::after{content:'';width:20px;height:1px;background:rgba(212,149,32,.5)}
+.hero-rec{display:flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--fm);font-size:.5rem;letter-spacing:.18em;color:var(--muted);margin-bottom:.6rem;opacity:0;animation:rise .7s .12s ease forwards}
+.rec-d{width:5px;height:5px;border-radius:50%;background:#39b070;box-shadow:0 0 7px #39b070;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.12}}
+h1.ake{font-family:var(--fd);font-size:clamp(7rem,18vw,15rem);font-weight:300;line-height:.82;letter-spacing:-.02em;color:var(--cream);margin-bottom:1rem;opacity:0;animation:rise .9s .2s ease forwards;text-shadow:0 4px 60px rgba(0,0,0,.5)}
+.hero-genre{font-family:var(--fd);font-size:1.05rem;font-weight:300;font-style:italic;color:rgba(245,237,216,.5);margin-bottom:2.8rem;opacity:0;animation:rise .8s .38s ease forwards}
+.hero-links{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;opacity:0;animation:rise .8s .52s ease forwards}
+.hl{font-family:var(--fm);font-size:.53rem;letter-spacing:.14em;text-transform:uppercase;padding:.65rem 1.3rem;border:1px solid var(--border);color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .22s}
+.hl:hover{border-color:var(--gold);color:var(--gold)}
+.hl.primary{border-color:rgba(212,149,32,.4);color:var(--gold)}
+.hl.primary:hover{background:var(--gold);color:var(--bg)}
+.hl svg{width:11px;height:11px;fill:currentColor;flex-shrink:0}
+.mq-wrap{overflow:hidden;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);background:var(--deep);padding:10px 0}
+.mq-track{display:flex;white-space:nowrap;animation:march 30s linear infinite}
+.mq-item{font-family:var(--fm);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);padding:0 3rem;display:inline-flex;align-items:center;gap:1rem}
+.mq-item b{color:var(--gold);font-weight:400}
+.sec{padding:7rem 3rem}
+.sec.alt{background:var(--deep)}
+.s-ey{font-family:var(--fm);font-size:.53rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
+.s-ey::after{content:'';width:24px;height:1px;background:var(--border)}
+.s-h{font-family:var(--fd);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.02;color:var(--cream)}
+.s-h em{font-style:italic;color:var(--gold-l)}
+#disco .disco-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.dfilters{display:flex;gap:.35rem;flex-wrap:wrap}
+.df{font-family:var(--fm);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;padding:.46rem 1rem;border:1px solid var(--border2);color:var(--dim);background:none;cursor:pointer;transition:all .2s}
+.df:hover{border-color:var(--border);color:var(--muted)}
+.df.on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.disco-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1px;background:var(--border2)}
+.release{background:var(--card);transition:background .22s}
+.release:hover{background:var(--card2)}
+.r-art{aspect-ratio:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.r-art-bg{position:absolute;inset:0}
+.r-letter{font-family:var(--fd);font-size:3.2rem;font-weight:300;color:rgba(212,149,32,.1);position:relative;z-index:1}
+.r-badge{position:absolute;top:.55rem;right:.55rem;font-family:var(--fm);font-size:.43rem;letter-spacing:.11em;text-transform:uppercase;padding:.2rem .5rem;background:rgba(212,149,32,.1);color:var(--gold);border:1px solid rgba(212,149,32,.18)}
+.r-year{position:absolute;bottom:.5rem;left:.55rem;font-family:var(--fm);font-size:.43rem;color:var(--dim)}
+.r-body{padding:1rem}
+.r-title{font-family:var(--fd);font-size:1.05rem;font-weight:300;margin-bottom:.12rem;color:var(--cream)}
+.r-feat{font-family:var(--fm);font-size:.48rem;letter-spacing:.1em;color:var(--dim);margin-bottom:.7rem}
+.r-strs{display:flex;gap:.28rem;flex-wrap:wrap}
+.r-str{font-family:var(--fm);font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .52rem;border:1px solid var(--border2);color:var(--dim);text-decoration:none;transition:all .2s}
+.r-str:hover{border-color:var(--gold);color:var(--gold)}
+.r-str.off{opacity:.28;pointer-events:none}
+.plat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:var(--border2)}
+.plat{background:var(--card);padding:1.6rem 1.2rem;text-align:center;text-decoration:none;display:block;transition:background .22s}
+.plat:hover{background:var(--card2)}
+.plat-ico{font-size:1.4rem;margin-bottom:.6rem}
+.plat-n{font-family:var(--fm);font-size:.54rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.plat:hover .plat-n{color:var(--gold)}
+.plat-s{font-family:var(--fd);font-style:italic;font-size:.8rem;color:var(--dim);margin-top:.18rem}
+#merch{background:linear-gradient(160deg,var(--deep) 0%,#1C1408 50%,var(--deep) 100%);text-align:center;padding:8rem 3rem}
+.merch-tag{font-family:var(--fm);font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.merch-h{font-family:var(--fd);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:.9;color:var(--cream);margin-bottom:.4rem}
+.merch-h em{font-style:italic;color:var(--gold-l)}
+.merch-sub{font-family:var(--fd);font-style:italic;color:var(--muted);font-size:.98rem;margin-bottom:2.5rem;line-height:1.75;max-width:420px;margin-left:auto;margin-right:auto}
+.merch-tease{display:inline-block;font-family:var(--fm);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1.2rem;border:1px solid rgba(212,149,32,.18);color:var(--gold);margin-bottom:2.5rem}
+.merch-btn{font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:.82rem 1.8rem;border:1px solid rgba(212,149,32,.15);color:rgba(212,149,32,.3);background:none;cursor:not-allowed;display:inline-block}
+#ic-cta{padding:8rem 3rem;text-align:center;position:relative;overflow:hidden}
+.ic-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,#1C1005 0%,var(--bg) 75%)}
+.ic-content{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.ic-rec{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.53rem;letter-spacing:.2em;color:var(--muted);margin-bottom:1.5rem}
+.ic-rec-d{width:5px;height:5px;border-radius:50%;background:#39b070;box-shadow:0 0 7px #39b070;animation:blink 1.6s ease-in-out infinite}
+.ic-h{font-family:var(--fd);font-size:clamp(3rem,7vw,6rem);font-weight:300;line-height:.9;color:var(--cream);margin-bottom:.4rem}
+.ic-h em{font-style:italic;color:var(--gold-l)}
+.ic-sub{font-family:var(--fd);font-style:italic;color:var(--muted);font-size:1rem;margin-bottom:2.5rem;line-height:1.75}
+.ic-tiers{display:flex;gap:1px;background:var(--border);margin-bottom:2.5rem;text-align:left}
+.ic-tier{background:var(--deep);padding:1.2rem;flex:1}
+.ic-tier.feat{background:var(--card2)}
+.ic-tier-n{font-family:var(--fm);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.ic-tier.feat .ic-tier-n{color:var(--gold)}
+.ic-tier-p{font-family:var(--fd);font-size:1.2rem;font-weight:300;color:var(--cream)}
+.ic-tier-p span{font-family:var(--fm);font-size:.48rem;color:var(--gold)}
+.ic-btns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.ic-btn{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.88rem 2rem;background:var(--gold);color:var(--bg);text-decoration:none;display:inline-block;transition:background .2s}
+.ic-btn:hover{background:var(--gold-l)}
+.ic-btn-sec{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.88rem 2rem;border:1px solid var(--border);color:var(--muted);text-decoration:none;display:inline-block;transition:all .2s}
+.ic-btn-sec:hover{border-color:var(--gold);color:var(--gold)}
+footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5rem 3rem}
+.f-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.f-logo{font-family:var(--fd);font-size:1.1rem;color:rgba(245,237,216,.35)}
+.f-links{display:flex;gap:1.8rem;flex-wrap:wrap}
+.f-links a{font-family:var(--fm);font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,237,216,.22);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--gold)}
+.f-legal{font-family:var(--fm);font-size:.46rem;letter-spacing:.08em;color:rgba(245,237,216,.15)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes march{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}.nav-links,.nav-cta{display:none}.burger{display:flex}
+  .sec{padding:5rem 1.5rem}.ic-tiers{flex-direction:column}
+  #merch,#ic-cta{padding:5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<nav id="nav">
+  <a href="/" class="nav-logo">AKE</a>
+  <ul class="nav-links">
+    <li><a href="#disco">Musique</a></li>
+    <li><a href="#plateformes">Streaming</a></li>
+    <li><a href="#merch">Merch</a></li>
+  </ul>
+  <a href="inner_circle.html" class="nav-cta">Inner Circle</a>
+  <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#disco" onclick="closeMob()">Musique</a>
+  <a href="#plateformes" onclick="closeMob()">Streaming</a>
+  <a href="#merch" onclick="closeMob()">Merch</a>
+  <a href="inner_circle.html" class="mob-cta" onclick="closeMob()">Inner Circle</a>
+</div>
+<section id="hero">
+  <div class="hero-photo" id="heroPhoto">
+    <div class="hero-photo-placeholder" id="heroPlaceholder">
+      <div class="ph-icon">📷</div>
+      <div class="ph-text">Photo artiste<br>→ photos/artist_hero.jpg</div>
+    </div>
+  </div>
+  <div class="hero-photo-grad"></div>
+  <div class="hero-content">
+    <div class="hero-rec"><span class="rec-d"></span>Nouveau — Par Défaut · EP 2026</div>
+    <div class="hero-tag">R&B · Trap · Soul · Paris</div>
+    <h1 class="ake">AKE</h1>
+    <p class="hero-genre">Artiste indépendant · Label AKE Records</p>
+    <div class="hero-links">
+      <a href="https://open.spotify.com/artist/5kVxODSxrF1NkLHZRVlf7g" target="_blank" class="hl primary">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Écouter
+      </a>
+      <a href="https://instagram.com/ake.4real" target="_blank" class="hl">Instagram</a>
+      <a href="https://tiktok.com/@ake.4real" target="_blank" class="hl">TikTok</a>
+      <a href="#disco" class="hl">Discographie ↓</a>
+    </div>
+  </div>
+</section>
+<div class="mq-wrap"><div class="mq-track">
+  <span class="mq-item">Par Défaut <b>◆</b></span><span class="mq-item">Montres Moi <b>◆</b></span>
+  <span class="mq-item">Sushi <b>◆</b></span><span class="mq-item">ENCORE <b>◆</b></span>
+  <span class="mq-item">Jackpot <b>◆</b></span><span class="mq-item">Murda 2 <b>◆</b></span>
+  <span class="mq-item">Before The Strom <b>◆</b></span><span class="mq-item">Première Vague <b>◆</b></span>
+  <span class="mq-item">Par Défaut <b>◆</b></span><span class="mq-item">Montres Moi <b>◆</b></span>
+  <span class="mq-item">Sushi <b>◆</b></span><span class="mq-item">ENCORE <b>◆</b></span>
+  <span class="mq-item">Jackpot <b>◆</b></span><span class="mq-item">Murda 2 <b>◆</b></span>
+  <span class="mq-item">Before The Strom <b>◆</b></span><span class="mq-item">Première Vague <b>◆</b></span>
+</div></div>
+<section class="sec alt" id="disco">
+  <div class="disco-head">
+    <div><div class="s-ey reveal">Discographie</div><h2 class="s-h reveal">Tous les <em>titres</em></h2></div>
+    <div class="dfilters reveal" id="dfilters">
+      <button class="df on" data-f="all" onclick="filterDisco('all')">Tout</button>
+      <button class="df" data-f="ep" onclick="filterDisco('ep')">EP / Albums</button>
+      <button class="df" data-f="mixtape" onclick="filterDisco('mixtape')">Mixtape</button>
+      <button class="df" data-f="single" onclick="filterDisco('single')">Singles</button>
+      <button class="df" data-f="collab" onclick="filterDisco('collab')">Collabs</button>
+    </div>
+  </div>
+  <div class="disco-grid" id="discoGrid"></div>
+</section>
+<section class="sec" id="plateformes">
+  <div style="text-align:center;margin-bottom:2.2rem">
+    <div class="s-ey reveal" style="justify-content:center">Streaming</div>
+    <h2 class="s-h reveal" style="text-align:center">Sur toutes les <em>plateformes</em></h2>
+  </div>
+  <div class="plat-grid reveal">
+    <a href="https://open.spotify.com/artist/5kVxODSxrF1NkLHZRVlf7g" target="_blank" class="plat"><div class="plat-ico">🎵</div><div class="plat-n">Spotify</div><div class="plat-s">Écouter</div></a>
+    <a href="https://music.apple.com/fr/artist/ake/1568441986" target="_blank" class="plat"><div class="plat-ico">🎵</div><div class="plat-n">Apple Music</div><div class="plat-s">Écouter</div></a>
+    <a href="https://deezer.com/fr/artist/141978862" target="_blank" class="plat"><div class="plat-ico">🎵</div><div class="plat-n">Deezer</div><div class="plat-s">Écouter</div></a>
+    <a href="https://youtube.com/@AKEOfficial" target="_blank" class="plat"><div class="plat-ico">▶️</div><div class="plat-n">YouTube</div><div class="plat-s">Regarder</div></a>
+    <a href="https://instagram.com/ake.4real" target="_blank" class="plat"><div class="plat-ico">📸</div><div class="plat-n">Instagram</div><div class="plat-s">@ake.4real</div></a>
+    <a href="https://tiktok.com/@ake.4real" target="_blank" class="plat"><div class="plat-ico">🎬</div><div class="plat-n">TikTok</div><div class="plat-s">@ake.4real</div></a>
+  </div>
+</section>
+<section id="merch">
+  <div class="merch-tag reveal">Merch</div>
+  <h2 class="merch-h reveal">Summer<em>Camp</em></h2>
+  <p class="merch-sub reveal">La collection arrive. Tenue de combat pour l'été 2026.</p>
+  <div class="merch-tease reveal">🌅 Été 2026 — Bientôt disponible</div><br>
+  <div class="merch-btn reveal">Boutique en construction</div>
+</section>
+<section id="ic-cta">
+  <div class="ic-bg"></div>
+  <div class="ic-content">
+    <div class="ic-rec reveal"><span class="ic-rec-d"></span>Espace exclusif</div>
+    <h2 class="ic-h reveal">Inner <em>Circle</em></h2>
+    <p class="ic-sub reveal">Extraits privés, galerie vidéo exclusive, streaming avant sortie.</p>
+    <div class="ic-tiers reveal">
+      <div class="ic-tier"><div class="ic-tier-n">Le Crew</div><div class="ic-tier-p">Gratuit</div></div>
+      <div class="ic-tier"><div class="ic-tier-n">Le Cercle</div><div class="ic-tier-p">2€ <span>/ mois</span></div></div>
+      <div class="ic-tier feat"><div class="ic-tier-n">Le Cercle+</div><div class="ic-tier-p">5€ <span>/ mois</span></div></div>
+      <div class="ic-tier"><div class="ic-tier-n">Le Cercle Pro</div><div class="ic-tier-p">10€ <span>/ mois</span></div></div>
+    </div>
+    <div class="ic-btns reveal">
+      <a href="inner_circle.html" class="ic-btn">Rejoindre l'Inner Circle</a>
+      <a href="inner_circle.html" class="ic-btn-sec">Déjà membre →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="f-inner">
+    <div class="f-logo">AKE</div>
+    <div class="f-links">
+      <a href="#disco">Musique</a>
+      <a href="inner_circle.html">Inner Circle</a>
+      <a href="https://akerecords.fr" target="_blank">AKE Records →</a>
+      <a href="mentions.html">Mentions légales</a>
+    </div>
+    <div class="f-legal">© 2026 AKE · Label AKE Records (SAS)</div>
+  </div>
+</footer>
+<script>
+const cur=document.getElementById('cur');
+document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button,.release,.plat').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',window.scrollY>60));
+function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
+function closeMob(){document.getElementById('mobNav').classList.remove('open')}
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const img=new Image();
+img.onload=()=>{document.getElementById('heroPlaceholder').style.display='none'};
+img.src='photos/artist_hero.jpg';
+const releases=[
+  {t:'Par Défaut',f:'AKE',type:'ep',y:'2026',bg:'radial-gradient(ellipse,#1a0a18 0%,#0a0810 100%)',l:'P',sp:'https://open.spotify.com/album/3eWVE3mnRHV1eJR1d5o5OV'},
+  {t:'Montres Moi',f:'AKE',type:'single',y:'2026',bg:'radial-gradient(ellipse,#180a12 0%,#0a0810 100%)',l:'M',sp:'#'},
+  {t:'Sushi',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#0a1218 0%,#080a10 100%)',l:'S',sp:'#'},
+  {t:'ENCORE',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#1a1208 0%,#0c0a06 100%)',l:'E',sp:'#'},
+  {t:'Jackpot',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#0a180a 0%,#060c06 100%)',l:'J',sp:'#'},
+  {t:'Murda 2',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#18080a 0%,#0c0608 100%)',l:'M',sp:'#'},
+  {t:'Docta',f:'AKE',type:'single',y:'2024',bg:'radial-gradient(ellipse,#080a18 0%,#060810 100%)',l:'D',sp:'#'},
+  {t:"M'en sortir",f:'AKE',type:'single',y:'2024',bg:'radial-gradient(ellipse,#181208 0%,#0c0a06 100%)',l:'M',sp:'#'},
+  {t:'Before The Strom',f:'AKE',type:'ep',y:'2023',bg:'radial-gradient(ellipse,#0a0c18 0%,#060810 100%)',l:'B',sp:'#'},
+  {t:'Première Vague',f:'AKE',type:'mixtape',y:'2022',bg:'radial-gradient(ellipse,#181008 0%,#100c06 100%)',l:'P',sp:'#'},
+  {t:'Combien',f:'AKE',type:'single',y:'2022',bg:'radial-gradient(ellipse,#0a1808 0%,#060c06 100%)',l:'C',sp:'#'},
+  {t:'Murda',f:'AKE',type:'single',y:'2022',bg:'radial-gradient(ellipse,#180a0a 0%,#0c0606 100%)',l:'M',sp:'#'},
+  {t:'Phone',f:'AKE',type:'single',y:'2021',bg:'radial-gradient(ellipse,#0a0818 0%,#060610 100%)',l:'P',sp:'#'},
+  {t:'Duende Vol.1',f:'Collab',type:'collab',y:'2024',bg:'radial-gradient(ellipse,#181818 0%,#0c0c0c 100%)',l:'D',sp:'#'},
+  {t:'Outratape',f:'Collab',type:'collab',y:'2023',bg:'radial-gradient(ellipse,#141010 0%,#0c0808 100%)',l:'O',sp:'#'},
+  {t:'Hydi Kush Vol.1',f:'Collab',type:'collab',y:'2023',bg:'radial-gradient(ellipse,#0a1808 0%,#060c06 100%)',l:'H',sp:'#'},
+  {t:'Compliqué',f:'Collab',type:'collab',y:'2023',bg:'radial-gradient(ellipse,#18100a 0%,#0c0806 100%)',l:'C',sp:'#'},
+  {t:'Nonchalant',f:'Collab',type:'collab',y:'2022',bg:'radial-gradient(ellipse,#080a18 0%,#060810 100%)',l:'N',sp:'#'},
+];
+const BADGE={ep:'EP',single:'Single',mixtape:'Mixtape',collab:'Collab'};
+function renderDisco(f){
+  const g=document.getElementById('discoGrid');
+  const list=f==='all'?releases:releases.filter(r=>r.type===f);
+  g.innerHTML=list.map(r=>`<div class="release"><div class="r-art"><div class="r-art-bg" style="background:${r.bg}"></div><div class="r-letter">${r.l}</div><div class="r-badge">${BADGE[r.type]}</div><div class="r-year">${r.y}</div></div><div class="r-body"><div class="r-title">${r.t}</div><div class="r-feat">${r.f} · ${r.y}</div><div class="r-strs"><a href="${r.sp}" target="_blank" class="r-str${r.sp==='#'?' off':''}">Spotify</a><a href="#" class="r-str off">Deezer</a><a href="#" class="r-str off">Apple</a></div></div></div>`).join('');
+}
+function filterDisco(f){
+  document.querySelectorAll('.df').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  renderDisco(f);
+}
+renderDisco('all');
+</script>
+</body>
+</html>
