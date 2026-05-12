@@ -1,0 +1,12 @@
+DOSSIER AUDIO — Site AKE Artiste
+=================================
+
+singles/      → Dépose ici les fichiers MP3/WAV des prochains singles AVANT sortie
+               Nommage : nom-du-titre.mp3  (ex: nouveau-single.mp3)
+               Ces fichiers sont intégrés directement dans le site (lecteur audio privé)
+
+extraits/     → Extraits 30-60s pour les écoutes publiques sur la page principale
+               Nommage : titre-extrait.mp3  (ex: par-defaut-extrait.mp3)
+
+NOTE: Pour les titres déjà sortis, on utilise les embeds Spotify directement (aucun fichier à déposer).
+Pour les prochains singles CONFIDENTIELS, dépose le fichier MP3 ici — il sera intégré avec le lecteur audio protégé.

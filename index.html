@@ -12,7 +12,7 @@
 :root{
   --bg:#0F0D0A;--deep:#161410;--card:#1E1A14;--card2:#252018;
   --border:rgba(212,149,32,.16);--border2:rgba(212,149,32,.07);
-  --gold:#D49520;--gold-l:#F0B535;
+  --gold:#D49520;--gold-l:#F0B535;--gold-d:#9A6D1E;
   --cream:#F5EDD8;--muted:#8A7A58;--dim:#4A3D28;
   --fd:'Cormorant Garamond',Georgia,serif;--fb:'Outfit',sans-serif;--fm:'DM Mono',monospace;
 }
@@ -22,6 +22,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .18s,height .18s}
 .cur.big{width:30px;height:30px;opacity:.4}
 @media(hover:none){.cur{display:none}body{cursor:auto}}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:all .4s}
 nav.on{background:rgba(15,13,10,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
 .nav-logo{font-family:var(--fd);font-size:1.3rem;font-weight:400;letter-spacing:.06em;color:var(--cream);text-decoration:none}
@@ -37,7 +39,10 @@ nav.on{background:rgba(15,13,10,.97);border-bottom:1px solid var(--border);backd
 .mob-nav a{font-family:var(--fd);font-size:2.4rem;font-weight:300;color:var(--cream);text-decoration:none;transition:color .2s}
 .mob-nav a:hover{color:var(--gold)}
 .mob-cta{font-family:var(--fm)!important;font-size:.65rem!important;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)!important;border:1px solid rgba(212,149,32,.35);padding:.7rem 2rem}
+
+/* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;overflow:hidden;text-align:center;padding:0 2rem 5rem}
+/* Fond photo artiste — photos/artist_hero.jpg */
 .hero-photo{position:absolute;inset:0;background:#0F0D0A url('photos/artist_hero.jpg') center 30%/cover no-repeat}
 .hero-photo-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,13,10,.3) 0%,rgba(15,13,10,.15) 40%,rgba(15,13,10,.75) 75%,var(--bg) 100%)}
 .hero-photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;background:radial-gradient(ellipse 90% 70% at 50% 35%,#201404 0%,var(--bg) 70%)}
@@ -57,16 +62,22 @@ h1.ake{font-family:var(--fd);font-size:clamp(7rem,18vw,15rem);font-weight:300;li
 .hl.primary{border-color:rgba(212,149,32,.4);color:var(--gold)}
 .hl.primary:hover{background:var(--gold);color:var(--bg)}
 .hl svg{width:11px;height:11px;fill:currentColor;flex-shrink:0}
+
+/* MARQUEE */
 .mq-wrap{overflow:hidden;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);background:var(--deep);padding:10px 0}
 .mq-track{display:flex;white-space:nowrap;animation:march 30s linear infinite}
 .mq-item{font-family:var(--fm);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);padding:0 3rem;display:inline-flex;align-items:center;gap:1rem}
 .mq-item b{color:var(--gold);font-weight:400}
+
+/* SECTIONS */
 .sec{padding:7rem 3rem}
 .sec.alt{background:var(--deep)}
 .s-ey{font-family:var(--fm);font-size:.53rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
 .s-ey::after{content:'';width:24px;height:1px;background:var(--border)}
 .s-h{font-family:var(--fd);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.02;color:var(--cream)}
 .s-h em{font-style:italic;color:var(--gold-l)}
+
+/* DISCO */
 #disco .disco-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
 .dfilters{display:flex;gap:.35rem;flex-wrap:wrap}
 .df{font-family:var(--fm);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;padding:.46rem 1rem;border:1px solid var(--border2);color:var(--dim);background:none;cursor:pointer;transition:all .2s}
@@ -87,13 +98,17 @@ h1.ake{font-family:var(--fd);font-size:clamp(7rem,18vw,15rem);font-weight:300;li
 .r-str{font-family:var(--fm);font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .52rem;border:1px solid var(--border2);color:var(--dim);text-decoration:none;transition:all .2s}
 .r-str:hover{border-color:var(--gold);color:var(--gold)}
 .r-str.off{opacity:.28;pointer-events:none}
-.plat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:var(--border2)}
+
+/* PLATEFORMES */
+#plateformes .plat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1px;background:var(--border2)}
 .plat{background:var(--card);padding:1.6rem 1.2rem;text-align:center;text-decoration:none;display:block;transition:background .22s}
 .plat:hover{background:var(--card2)}
 .plat-ico{font-size:1.4rem;margin-bottom:.6rem}
 .plat-n{font-family:var(--fm);font-size:.54rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);transition:color .2s}
 .plat:hover .plat-n{color:var(--gold)}
 .plat-s{font-family:var(--fd);font-style:italic;font-size:.8rem;color:var(--dim);margin-top:.18rem}
+
+/* MERCH */
 #merch{background:linear-gradient(160deg,var(--deep) 0%,#1C1408 50%,var(--deep) 100%);text-align:center;padding:8rem 3rem}
 .merch-tag{font-family:var(--fm);font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
 .merch-h{font-family:var(--fd);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:.9;color:var(--cream);margin-bottom:.4rem}
@@ -101,6 +116,8 @@ h1.ake{font-family:var(--fd);font-size:clamp(7rem,18vw,15rem);font-weight:300;li
 .merch-sub{font-family:var(--fd);font-style:italic;color:var(--muted);font-size:.98rem;margin-bottom:2.5rem;line-height:1.75;max-width:420px;margin-left:auto;margin-right:auto}
 .merch-tease{display:inline-block;font-family:var(--fm);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1.2rem;border:1px solid rgba(212,149,32,.18);color:var(--gold);margin-bottom:2.5rem}
 .merch-btn{font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:.82rem 1.8rem;border:1px solid rgba(212,149,32,.15);color:rgba(212,149,32,.3);background:none;cursor:not-allowed;display:inline-block}
+
+/* IC CTA */
 #ic-cta{padding:8rem 3rem;text-align:center;position:relative;overflow:hidden}
 .ic-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,#1C1005 0%,var(--bg) 75%)}
 .ic-content{position:relative;z-index:1;max-width:600px;margin:0 auto}
@@ -121,6 +138,8 @@ h1.ake{font-family:var(--fd);font-size:clamp(7rem,18vw,15rem);font-weight:300;li
 .ic-btn:hover{background:var(--gold-l)}
 .ic-btn-sec{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:.88rem 2rem;border:1px solid var(--border);color:var(--muted);text-decoration:none;display:inline-block;transition:all .2s}
 .ic-btn-sec:hover{border-color:var(--gold);color:var(--gold)}
+
+/* FOOTER */
 footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5rem 3rem}
 .f-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
 .f-logo{font-family:var(--fd);font-size:1.1rem;color:rgba(245,237,216,.35)}
@@ -128,19 +147,24 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
 .f-links a{font-family:var(--fm);font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,237,216,.22);text-decoration:none;transition:color .2s}
 .f-links a:hover{color:var(--gold)}
 .f-legal{font-family:var(--fm);font-size:.46rem;letter-spacing:.08em;color:rgba(245,237,216,.15)}
+
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes march{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:900px){
-  nav{padding:1.2rem 1.5rem}.nav-links,.nav-cta{display:none}.burger{display:flex}
-  .sec{padding:5rem 1.5rem}.ic-tiers{flex-direction:column}
+  nav{padding:1.2rem 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .sec{padding:5rem 1.5rem}
+  .ic-tiers{flex-direction:column}
   #merch,#ic-cta{padding:5rem 1.5rem}
 }
 </style>
 </head>
 <body>
 <div class="cur" id="cur"></div>
+
 <nav id="nav">
   <a href="/" class="nav-logo">AKE</a>
   <ul class="nav-links">
@@ -157,11 +181,14 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
   <a href="#merch" onclick="closeMob()">Merch</a>
   <a href="inner_circle.html" class="mob-cta" onclick="closeMob()">Inner Circle</a>
 </div>
+
+<!-- HERO AVEC PHOTO ARTISTE -->
 <section id="hero">
   <div class="hero-photo" id="heroPhoto">
+    <!-- Fond : photos/artist_hero.jpg — portrait en pied ou mi-corps, lumière sombre -->
     <div class="hero-photo-placeholder" id="heroPlaceholder">
       <div class="ph-icon">📷</div>
-      <div class="ph-text">Photo artiste<br>→ photos/artist_hero.jpg</div>
+      <div class="ph-text">Photo artiste<br>→ photos/artist_hero.jpg<br><br>Portrait en pied ou mi-corps<br>Lumière sombre recommandée</div>
     </div>
   </div>
   <div class="hero-photo-grad"></div>
@@ -181,19 +208,36 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
     </div>
   </div>
 </section>
-<div class="mq-wrap"><div class="mq-track">
-  <span class="mq-item">Par Défaut <b>◆</b></span><span class="mq-item">Montres Moi <b>◆</b></span>
-  <span class="mq-item">Sushi <b>◆</b></span><span class="mq-item">ENCORE <b>◆</b></span>
-  <span class="mq-item">Jackpot <b>◆</b></span><span class="mq-item">Murda 2 <b>◆</b></span>
-  <span class="mq-item">Before The Strom <b>◆</b></span><span class="mq-item">Première Vague <b>◆</b></span>
-  <span class="mq-item">Par Défaut <b>◆</b></span><span class="mq-item">Montres Moi <b>◆</b></span>
-  <span class="mq-item">Sushi <b>◆</b></span><span class="mq-item">ENCORE <b>◆</b></span>
-  <span class="mq-item">Jackpot <b>◆</b></span><span class="mq-item">Murda 2 <b>◆</b></span>
-  <span class="mq-item">Before The Strom <b>◆</b></span><span class="mq-item">Première Vague <b>◆</b></span>
-</div></div>
+
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <span class="mq-item">Par Défaut <b>◆</b></span>
+    <span class="mq-item">Montres Moi <b>◆</b></span>
+    <span class="mq-item">Sushi <b>◆</b></span>
+    <span class="mq-item">ENCORE <b>◆</b></span>
+    <span class="mq-item">Jackpot <b>◆</b></span>
+    <span class="mq-item">Murda 2 <b>◆</b></span>
+    <span class="mq-item">Before The Strom <b>◆</b></span>
+    <span class="mq-item">Première Vague <b>◆</b></span>
+    <span class="mq-item">Par Défaut <b>◆</b></span>
+    <span class="mq-item">Montres Moi <b>◆</b></span>
+    <span class="mq-item">Sushi <b>◆</b></span>
+    <span class="mq-item">ENCORE <b>◆</b></span>
+    <span class="mq-item">Jackpot <b>◆</b></span>
+    <span class="mq-item">Murda 2 <b>◆</b></span>
+    <span class="mq-item">Before The Strom <b>◆</b></span>
+    <span class="mq-item">Première Vague <b>◆</b></span>
+  </div>
+</div>
+
+<!-- DISCOGRAPHIE -->
 <section class="sec alt" id="disco">
   <div class="disco-head">
-    <div><div class="s-ey reveal">Discographie</div><h2 class="s-h reveal">Tous les <em>titres</em></h2></div>
+    <div>
+      <div class="s-ey reveal">Discographie</div>
+      <h2 class="s-h reveal">Tous les <em>titres</em></h2>
+    </div>
     <div class="dfilters reveal" id="dfilters">
       <button class="df on" data-f="all" onclick="filterDisco('all')">Tout</button>
       <button class="df" data-f="ep" onclick="filterDisco('ep')">EP / Albums</button>
@@ -204,6 +248,8 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
   </div>
   <div class="disco-grid" id="discoGrid"></div>
 </section>
+
+<!-- PLATEFORMES -->
 <section class="sec" id="plateformes">
   <div style="text-align:center;margin-bottom:2.2rem">
     <div class="s-ey reveal" style="justify-content:center">Streaming</div>
@@ -218,6 +264,49 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
     <a href="https://tiktok.com/@ake.4real" target="_blank" class="plat"><div class="plat-ico">🎬</div><div class="plat-n">TikTok</div><div class="plat-s">@ake.4real</div></a>
   </div>
 </section>
+
+<!-- MERCH -->
+
+<!-- PROCHAINEMENT -->
+<section id="prochainement" style="background:var(--deep);padding:7rem 3rem;border-top:1px solid var(--border2)">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3.5rem">
+      <div class="s-ey reveal" style="justify-content:center">Prochainement</div>
+      <h2 class="s-h reveal" style="text-align:center">Ce qui <em>arrive</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--border2)" class="reveal">
+      <div style="background:var(--card);padding:2.2rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+        <div style="font-size:1.8rem;margin-bottom:1rem">🎬</div>
+        <div style="font-family:var(--fm);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Documentaire</div>
+        <div style="font-family:var(--fd);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:.2rem">Séminaire</div>
+        <div style="font-family:var(--fd);font-style:italic;font-size:1.1rem;color:var(--gold-l);margin-bottom:.8rem">Épisode 1</div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.75;margin-bottom:1.4rem">La vraie histoire. Trois jours à Marseille. Ce que les caméras ont capté, ce que le public n'a jamais vu.</p>
+        <a href="#" id="linkSeminaire" style="font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.4rem;border:1px solid rgba(212,149,32,.25);color:rgba(212,149,32,.45);text-decoration:none;display:inline-block;cursor:not-allowed">Bientôt disponible</a>
+      </div>
+      <div style="background:var(--card);padding:2.2rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
+        <div style="font-size:1.8rem;margin-bottom:1rem">👕</div>
+        <div style="font-family:var(--fm);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Collection</div>
+        <div style="font-family:var(--fd);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:.2rem">SummerCamp</div>
+        <div style="font-family:var(--fd);font-style:italic;font-size:1.1rem;color:var(--gold-l);margin-bottom:.8rem">Été 2026</div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.75;margin-bottom:1.4rem">La première collection AKE Records. Pièces limitées. La tenue de l'été.</p>
+        <a href="#" id="linkMerch" style="font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.4rem;border:1px solid rgba(212,149,32,.25);color:rgba(212,149,32,.45);text-decoration:none;display:inline-block;cursor:not-allowed">Bientôt disponible</a>
+      </div>
+      <div style="background:var(--card);padding:2.2rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold))"></div>
+        <div style="font-size:1.8rem;margin-bottom:1rem">🔐</div>
+        <div style="font-family:var(--fm);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Espace exclusif</div>
+        <div style="font-family:var(--fd);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:.2rem">Inner</div>
+        <div style="font-family:var(--fd);font-style:italic;font-size:1.1rem;color:var(--gold-l);margin-bottom:.8rem">Circle</div>
+        <p style="font-size:.8rem;color:var(--muted);line-height:1.75;margin-bottom:1.4rem">Vidéos exclusives, extraits audio, documentaire en avant-première. Bientôt ouvert.</p>
+        <a href="inner_circle.html" style="font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.4rem;border:1px solid rgba(212,149,32,.35);color:var(--gold);text-decoration:none;display:inline-block;transition:all .2s">Rejoindre →</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-family:var(--fm);font-size:.52rem;letter-spacing:.14em;color:var(--dim);margin-top:2rem">Les liens seront activés lors du lancement officiel</p>
+  </div>
+</section>
+
 <section id="merch">
   <div class="merch-tag reveal">Merch</div>
   <h2 class="merch-h reveal">Summer<em>Camp</em></h2>
@@ -225,12 +314,14 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
   <div class="merch-tease reveal">🌅 Été 2026 — Bientôt disponible</div><br>
   <div class="merch-btn reveal">Boutique en construction</div>
 </section>
+
+<!-- INNER CIRCLE CTA -->
 <section id="ic-cta">
   <div class="ic-bg"></div>
   <div class="ic-content">
     <div class="ic-rec reveal"><span class="ic-rec-d"></span>Espace exclusif</div>
     <h2 class="ic-h reveal">Inner <em>Circle</em></h2>
-    <p class="ic-sub reveal">Extraits privés, galerie vidéo exclusive, streaming avant sortie.</p>
+    <p class="ic-sub reveal">Extraits privés, galerie vidéo exclusive, streaming avant sortie.<br>L'espace le plus proche du projet.</p>
     <div class="ic-tiers reveal">
       <div class="ic-tier"><div class="ic-tier-n">Le Crew</div><div class="ic-tier-p">Gratuit</div></div>
       <div class="ic-tier"><div class="ic-tier-n">Le Cercle</div><div class="ic-tier-p">2€ <span>/ mois</span></div></div>
@@ -243,6 +334,7 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
     </div>
   </div>
 </section>
+
 <footer>
   <div class="f-inner">
     <div class="f-logo">AKE</div>
@@ -255,6 +347,7 @@ footer{background:#080604;border-top:1px solid rgba(255,255,255,.04);padding:2.5
     <div class="f-legal">© 2026 AKE · Label AKE Records (SAS)</div>
   </div>
 </footer>
+
 <script>
 const cur=document.getElementById('cur');
 document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
@@ -267,40 +360,97 @@ function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
 function closeMob(){document.getElementById('mobNav').classList.remove('open')}
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Hero photo
 const img=new Image();
 img.onload=()=>{document.getElementById('heroPlaceholder').style.display='none'};
 img.src='photos/artist_hero.jpg';
+
+// Discographie
+// ── CSS addition for real cover images
+const styleEl = document.createElement('style');
+styleEl.textContent = `
+.r-art img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.r-art{position:relative;overflow:hidden}
+.r-badge{z-index:2;position:absolute}
+.r-year{z-index:2;position:absolute}
+`;
+document.head.appendChild(styleEl);
+
 const releases=[
-  {t:'Par Défaut',f:'AKE',type:'ep',y:'2026',bg:'radial-gradient(ellipse,#1a0a18 0%,#0a0810 100%)',l:'P',sp:'https://open.spotify.com/album/3eWVE3mnRHV1eJR1d5o5OV'},
-  {t:'Montres Moi',f:'AKE',type:'single',y:'2026',bg:'radial-gradient(ellipse,#180a12 0%,#0a0810 100%)',l:'M',sp:'#'},
-  {t:'Sushi',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#0a1218 0%,#080a10 100%)',l:'S',sp:'#'},
-  {t:'ENCORE',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#1a1208 0%,#0c0a06 100%)',l:'E',sp:'#'},
-  {t:'Jackpot',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#0a180a 0%,#060c06 100%)',l:'J',sp:'#'},
-  {t:'Murda 2',f:'AKE',type:'single',y:'2025',bg:'radial-gradient(ellipse,#18080a 0%,#0c0608 100%)',l:'M',sp:'#'},
-  {t:'Docta',f:'AKE',type:'single',y:'2024',bg:'radial-gradient(ellipse,#080a18 0%,#060810 100%)',l:'D',sp:'#'},
-  {t:"M'en sortir",f:'AKE',type:'single',y:'2024',bg:'radial-gradient(ellipse,#181208 0%,#0c0a06 100%)',l:'M',sp:'#'},
-  {t:'Before The Strom',f:'AKE',type:'ep',y:'2023',bg:'radial-gradient(ellipse,#0a0c18 0%,#060810 100%)',l:'B',sp:'#'},
-  {t:'Première Vague',f:'AKE',type:'mixtape',y:'2022',bg:'radial-gradient(ellipse,#181008 0%,#100c06 100%)',l:'P',sp:'#'},
-  {t:'Combien',f:'AKE',type:'single',y:'2022',bg:'radial-gradient(ellipse,#0a1808 0%,#060c06 100%)',l:'C',sp:'#'},
-  {t:'Murda',f:'AKE',type:'single',y:'2022',bg:'radial-gradient(ellipse,#180a0a 0%,#0c0606 100%)',l:'M',sp:'#'},
-  {t:'Phone',f:'AKE',type:'single',y:'2021',bg:'radial-gradient(ellipse,#0a0818 0%,#060610 100%)',l:'P',sp:'#'},
-  {t:'Duende Vol.1',f:'Collab',type:'collab',y:'2024',bg:'radial-gradient(ellipse,#181818 0%,#0c0c0c 100%)',l:'D',sp:'#'},
-  {t:'Outratape',f:'Collab',type:'collab',y:'2023',bg:'radial-gradient(ellipse,#141010 0%,#0c0808 100%)',l:'O',sp:'#'},
-  {t:'Hydi Kush Vol.1',f:'Collab',type:'collab',y:'2023',bg:'radial-gradient(ellipse,#0a1808 0%,#060c06 100%)',l:'H',sp:'#'},
-  {t:'Compliqué',f:'Collab',type:'collab',y:'2023',bg:'radial-gradient(ellipse,#18100a 0%,#0c0806 100%)',l:'C',sp:'#'},
-  {t:'Nonchalant',f:'Collab',type:'collab',y:'2022',bg:'radial-gradient(ellipse,#080a18 0%,#060810 100%)',l:'N',sp:'#'},
+  {t:'Par Défaut',f:'AKE',type:'ep',y:'2026',
+   sp:'https://open.spotify.com/album/0hXi7ypoO2XS97d4WyLEHA',
+   cover:'https://i.scdn.co/image/ab67616d0000b273b2fdd71d47e7fc31e0776a05'},
+  {t:'Montres Moi',f:'AKE',type:'single',y:'2026',
+   sp:'https://open.spotify.com/album/0wDp86a0OL2GTmFi3sMcVD',
+   cover:'https://i.scdn.co/image/ab67616d0000b27378cfb86d9455cf7d165f70cd'},
+  {t:'Sushi',f:'AKE',type:'single',y:'2025',
+   sp:'https://open.spotify.com/album/4WaIf2oDOjGMmCf0qfHGKb',
+   cover:'https://i.scdn.co/image/ab67616d0000b273d2d8439ad2bdaddf74c6b43a'},
+  {t:'ENCORE',f:'AKE × greed',type:'single',y:'2025',
+   sp:'https://open.spotify.com/album/0bROpelZ3rllQDAIWEa0c9',
+   cover:'https://i.scdn.co/image/ab67616d0000b2736c7b60fd0a87888779dfeab4'},
+  {t:'Jackpot',f:'AKE',type:'single',y:'2025',
+   sp:'https://open.spotify.com/album/7IId6496K3Lz6Y33GXGApB',
+   cover:'https://i.scdn.co/image/ab67616d0000b27337cd4db67e2738e2d48994af'},
+  {t:'Murda 2',f:'AKE',type:'single',y:'2025',
+   sp:'https://open.spotify.com/album/4xVpYYKLxvde1UWcfjPh0c',
+   cover:'https://i.scdn.co/image/ab67616d0000b27320163ffe588c344bcb051bd8'},
+  {t:'Docta',f:'AKE',type:'single',y:'2024',
+   sp:'https://open.spotify.com/album/6ItokAMNY1UI9gjbRBfkF9',
+   cover:'https://i.scdn.co/image/ab67616d0000b273fb87849175641a4a43c34cbf'},
+  {t:"M'en sortir",f:'AKE',type:'single',y:'2024',
+   sp:'https://open.spotify.com/album/79n8SF46UllujAFucGLyxc',
+   cover:'https://i.scdn.co/image/ab67616d0000b273dbae8842f395b92d7bd4f4e3'},
+  {t:'Before The Strom',f:'AKE',type:'ep',y:'2023',
+   sp:'#',cover:null},
+  {t:'Première Vague',f:'AKE',type:'mixtape',y:'2022',
+   sp:'https://open.spotify.com/album/00NXLuNBar1DtoN4zlz5Nj',
+   cover:'https://i.scdn.co/image/ab67616d0000b27389d8a23b6df39adfde2571b1'},
+  {t:'Duende Vol.1',f:'greed feat. AKE',type:'collab',y:'2025',
+   sp:'https://open.spotify.com/album/3AfDSWSKtjX4VWa54dC7yH',
+   cover:'https://i.scdn.co/image/ab67616d0000b273ce364ddcfa6df9c77a0e9cf2'},
+  {t:'Outratape*',f:'NVN feat. AKE',type:'collab',y:'2024',
+   sp:'https://open.spotify.com/album/27siY1HkiiYxHbOOgwyXrZ',
+   cover:'https://i.scdn.co/image/ab67616d0000b27361e82af0ea397b792cdbc198'},
+  {t:'Hydi Kush Vol.1',f:'Hydi feat. AKE',type:'collab',y:'2023',
+   sp:'https://open.spotify.com/album/2K1bzeIDke24nixlGyr8To',
+   cover:'https://i.scdn.co/image/ab67616d0000b273ed36f9928a0d764d19e26d5c'},
+  {t:'Compliqué',f:'Khalidd feat. AKE',type:'collab',y:'2023',
+   sp:'https://open.spotify.com/album/713bvyEcP7cWGS76jm65iM',
+   cover:'https://i.scdn.co/image/ab67616d0000b273a7aba60fa8e1b9aad0045c07'},
+  {t:'Nonchalant',f:'Hosa feat. AKE',type:'collab',y:'2022',
+   sp:'https://open.spotify.com/album/6Q07CD06fN3pYge9vYrnPt',
+   cover:'https://i.scdn.co/image/ab67616d0000b273ceae328b540d24c9c831f18c'},
 ];
 const BADGE={ep:'EP',single:'Single',mixtape:'Mixtape',collab:'Collab'};
 function renderDisco(f){
   const g=document.getElementById('discoGrid');
   const list=f==='all'?releases:releases.filter(r=>r.type===f);
-  g.innerHTML=list.map(r=>`<div class="release"><div class="r-art"><div class="r-art-bg" style="background:${r.bg}"></div><div class="r-letter">${r.l}</div><div class="r-badge">${BADGE[r.type]}</div><div class="r-year">${r.y}</div></div><div class="r-body"><div class="r-title">${r.t}</div><div class="r-feat">${r.f} · ${r.y}</div><div class="r-strs"><a href="${r.sp}" target="_blank" class="r-str${r.sp==='#'?' off':''}">Spotify</a><a href="#" class="r-str off">Deezer</a><a href="#" class="r-str off">Apple</a></div></div></div>`).join('');
+  g.innerHTML=list.map(r=>`<div class="release">
+    <div class="r-art" style="aspect-ratio:1">
+      ${r.cover?`<img src="${r.cover}" alt="${r.t}" loading="lazy" onerror="this.style.display='none'">`:
+        `<div class="r-art-bg" style="background:#1E1A14;position:absolute;inset:0"></div>`}
+      <div class="r-badge">${BADGE[r.type]}</div>
+      <div class="r-year">${r.y}</div>
+    </div>
+    <div class="r-body">
+      <div class="r-title">${r.t}</div>
+      <div class="r-feat">${r.f} · ${r.y}</div>
+      <div class="r-strs">
+        <a href="${r.sp}" target="_blank" class="r-str${r.sp==='#'?' off':''}">Spotify</a>
+        <a href="#" class="r-str off">Deezer</a>
+        <a href="#" class="r-str off">Apple</a>
+      </div>
+    </div>
+  </div>`).join('');
 }
 function filterDisco(f){
   document.querySelectorAll('.df').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
   renderDisco(f);
 }
 renderDisco('all');
+
 </script>
 </body>
 </html>
