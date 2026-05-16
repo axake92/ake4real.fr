@@ -1,0 +1,25 @@
+# Fichiers lourds exclus de git (servir depuis Netlify Large Media ou CDN)
+# Videos
+videos/**/*.mp4
+videos/**/*.mov
+videos/**/*.avi
+videos/**/*.mkv
+
+# Audio bruts (WAV, AIFF = trop lourds)
+audio/**/*.wav
+audio/**/*.aiff
+audio/**/*.aif
+audio/**/*.m4a
+
+# Garder les MP3 compresses (petits)
+!audio/**/*.mp3
+
+# Fichiers systeme
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*_b64.txt
+
+# Logs
+*.log
