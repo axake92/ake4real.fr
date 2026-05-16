@@ -1,11 +1,22 @@
 @echo off
-cd /d "C:\Users\axela\Desktop\AKE\ake4real.fr"
-"C:\Program Files\Git\cmd\git.exe" remote remove origin 2>nul
-"C:\Program Files\Git\cmd\git.exe" remote add origin https://github.com/axake92/ake4real-fr.git
-"C:\Program Files\Git\cmd\git.exe" branch -M main
-"C:\Program Files\Git\cmd\git.exe" add -A
-"C:\Program Files\Git\cmd\git.exe" commit -m "update: site artiste AKE - version complete"
-"C:\Program Files\Git\cmd\git.exe" push -u origin main
+chcp 65001 >nul
+SET PATH=C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\axela\AppData\Roaming\npm;%PATH%
+cd /d C:\Users\axela\Desktop\AKE\ake4real.fr
 echo.
-echo DONE - verifie app.netlify.com
+echo ====================================
+echo   PUSH — ake4real.fr
+echo ====================================
+echo.
+echo [1/2] Commit...
+git add .
+git commit -m "update" 2>nul || echo (rien a committer)
+echo.
+echo [2/2] Push GitHub...
+git push origin main
+echo.
+echo ====================================
+echo   DEPLOY NETLIFY AUTO SUR PUSH
+echo   Site: github.com/axake92/ake-artist
+echo ====================================
+echo.
 pause
